@@ -8,6 +8,7 @@ This repository provides a test automation framework for the **Swagger Pet Store
 
 - **CRUD Operations:**
   - Create a new pet
+  - Failed to create a new pet
   - Update pet details (via JSON and form data)
   - Fetch pet by status
   - Delete a pet
@@ -15,6 +16,13 @@ This repository provides a test automation framework for the **Swagger Pet Store
   - Upload images for pets
 
 ## Project Structure
+
+* features: comprise of feature files for PET store pet endpoint tests
+* steps: step defs from behave to python glue
+* reusables: base and asserts library for reusability and base test class to inherit
+* environment.py: file for before and after hooks
+* behave.ini: configuration for behave
+* test_data: keeping test data file(s)s
 
 
 
@@ -27,7 +35,7 @@ This repository provides a test automation framework for the **Swagger Pet Store
     ```
 3. Run tests
    ```bash
-   behave
+   behave --junit --junit-directory reports
    ```
 
 

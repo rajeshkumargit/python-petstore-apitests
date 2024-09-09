@@ -10,6 +10,10 @@ Feature: CRUD in pet store
             |category|name|tag|status|
             |labrador|buddy|lovely_pet|available|
 
+    Scenario: Failed to create a new pet
+        Given user creates a new pet with invalid data
+        Then user asserts request failed with message "'name' is a required property"
+
     Scenario Outline: Update an existing pet
         When user successfully updates an existing pet "<category>", "<name>", "<tag>", and "<status>"
         Then user fetches the pet successfully
