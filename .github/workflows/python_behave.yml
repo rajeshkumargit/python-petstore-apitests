@@ -31,11 +31,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Install Allure Commandline
+      - name: Download and Install Allure Commandline
         run: |
-          sudo apt-add-repository ppa:qameta/allure
-          sudo apt-get update
-          sudo apt-get install allure
+          curl -sSL https://github.com/allure-framework/allure2/releases/download/2.21.0/allure-2.21.0.tgz | tar xz -C /opt
+          ln -s /opt/allure-2.21.0/bin/allure /usr/local/bin/allure
 
       - name: Run Behave Tests
         run: |
