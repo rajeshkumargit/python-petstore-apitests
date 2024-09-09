@@ -31,14 +31,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Download and Install Allure Commandline
-        run: |
-          curl -sSL https://github.com/allure-framework/allure2/releases/download/2.21.0/allure-2.21.0.tgz | tar xz -C /opt
-          ln -s /opt/allure-2.21.0/bin/allure /usr/local/bin/allure
-
       - name: Run Behave Tests
         run: |
-          behave -f allure_behave.formatter:AllureFormatter --junit --junit-directory reports -o allure-results
+          behave --junit --junit-directory reports
 
       - name: Upload JUnit Test Results
         uses: actions/upload-artifact@v3
@@ -46,18 +41,8 @@ jobs:
           name: behave-junit-report
           path: reports
 
-      - name: Generate Allure Report
-        run: |
-          allure generate allure-results --clean -o allure-report
-
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v4
         if: success() || failure() # always run even if the previous step fails
         with:
           report_paths: 'reports/TESTS-*.xml'
-
-      - name: Upload Allure Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: allure-report
-          path: allure-report

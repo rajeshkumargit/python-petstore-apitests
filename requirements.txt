@@ -1,3 +1,2 @@
 behave==1.2.6
 bravado==10.4.2
-allure-behave==2.13.5
