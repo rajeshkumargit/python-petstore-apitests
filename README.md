@@ -44,6 +44,6 @@ This repository provides a test automation framework for the **Swagger Pet Store
 ## Github Actions
 
 1. For CI Run, please navigate to Github actions tab of the github repo: https://github.com/rajeshkumargit/python-petstore-apitests.git
-2. Run the build by committing to the branch or by manually clicking on the **Run Workflow** button
+2. Run the build by committing to the branch or by manually clicking on the **Run Workflow** button in **Run Behave Tests** tab in the Actions pane.
 3. View the steps in the build log
 4. Click on Summary tab to view detailed test results
