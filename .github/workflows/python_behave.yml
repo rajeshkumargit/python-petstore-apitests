@@ -48,4 +48,3 @@ jobs:
           report_paths: 'reports/TESTS-*.xml'
           detailed_summary: true
           include_passed: true
-          flaky_summary: true
